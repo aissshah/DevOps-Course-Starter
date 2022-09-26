@@ -17,4 +17,9 @@
       </ul>
     </div>
   </div>
+  <form action="/create-item" method="POST">
+    <label for="title">New item: </label>
+    <input type="text" id="title" name="todo" required />
+    <button type="submit">Submit</button>
+  </form>
 {% endblock %}
