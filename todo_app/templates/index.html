@@ -22,9 +22,10 @@
           <div class="card text-dark bg-warning mt-3 mb-3">
             <div class="card-body">
               <h5 class="card-title">{{ item.name }}</h5>
-              <p class="card-subtitle mb-1">{{ "list" }}</p>
-              <a href="#" class="btn btn-secondary disabled">Move Back</a>
-              <a href="#" class="btn btn-primary">Move Forward</a>
+              <p class="card-subtitle mb-1">{{ item.idList }}</p>
+              <a href="{{url_for('change_item_list', list='To Do', itemID=item.id)}}" class="btn btn-secondary">Move to To-Do</a>
+              <a href="{{url_for('change_item_list', list='Doing', itemID=item.id)}}" class="btn btn-secondary">Move to In-Progress</a>
+              <a href="{{url_for('change_item_list', list='Done', itemID=item.id)}}" class="btn btn-primary">All Done</a>
             </div>
           </div>
         </div>
