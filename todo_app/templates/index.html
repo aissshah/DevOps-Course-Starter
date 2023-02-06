@@ -10,16 +10,26 @@
   <div class="row">
     <div class="col-md-12">
       <h2>Items</h2>
-      <ul class="list-group mb-4">
+      <form class="text-center" action="/create-item" method="POST">
+        <label for="title">New item: </label>
+        <input type="text" id="title" name="todo" required />
+        <button type="submit">Submit</button>
+      </form>
+      <div class="card-group">
+
         {% for item in items %}
-          <li>{{ item.name }}</li>
+        <div class="col-sm-4">
+          <div class="card text-dark bg-warning mt-3 mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-subtitle mb-1">{{ "list" }}</p>
+              <a href="#" class="btn btn-secondary disabled">Move Back</a>
+              <a href="#" class="btn btn-primary">Move Forward</a>
+            </div>
+          </div>
+        </div>
         {% endfor %}
-      </ul>
+      </div>
     </div>
   </div>
-  <form action="/create-item" method="POST">
-    <label for="title">New item: </label>
-    <input type="text" id="title" name="todo" required />
-    <button type="submit">Submit</button>
-  </form>
 {% endblock %}
