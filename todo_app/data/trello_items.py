@@ -5,7 +5,7 @@ from todo_app.item import Item
 
 def get_auth():
     return {
-        'key': os.getenv('TRELLO_KEY'),nonlocal
+        'key': os.getenv('TRELLO_KEY'),
         'token': os.getenv('TRELLO_TOKEN'),
     }
 
