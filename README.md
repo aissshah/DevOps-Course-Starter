@@ -9,7 +9,7 @@ The project uses poetry for Python to create an isolated environment and manage 
 ### Poetry installation (Bash)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+curl -sSL https://install.python-poetry.org | python3 -
 ```
 
 ### Poetry installation (PowerShell)
@@ -38,6 +38,8 @@ You will need a trello account and a board set-up. The board lists must also be 
 
 ## Running the App
 
+### Locally
+
 Once the all dependencies have been installed, start the Flask app in development mode within the Poetry environment by running:
 ```bash
 $ poetry run flask run
@@ -54,6 +56,28 @@ You should see output similar to the following:
  * Debugger PIN: 226-556-590
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+
+### Using Docker
+
+The application can be run using Docker. Ensure you have [docker](https://docs.docker.com/get-docker/) installed to run the app this way.
+
+#### Development Version
+
+```sh
+docker build --target development --tag todo-app:dev .
+docker run --env-file ./.env -p 5100:5000 -it --mount type=bind,source="$(pwd)"/todo_app,target=/src/todo_app todo-app:dev
+```
+
+Visit [`http://localhost:5100/`](http://localhost:5100/) in your web browser to view the app. This version hot-reloads so you can see your changes.
+
+#### Production Version
+
+```sh
+docker build --target production --tag todo-app:prod .
+docker run --env-file ./.env -p 5200:8000 -it todo-app:prod
+```
+
+Go to [http://0.0.0.0:5200](http://0.0.0.0:5200) to see the application running.
 
 ## Testing the app
 
