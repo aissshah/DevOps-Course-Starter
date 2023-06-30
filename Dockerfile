@@ -24,4 +24,4 @@ CMD ["poetry", "run", "flask", "run", "--host", "0.0.0.0"]
 FROM base as test
 
 RUN poetry install
-RUN poetry run pytest
+ENTRYPOINT poetry run pytest

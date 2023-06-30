@@ -16,6 +16,6 @@ def test_item_correctly_generated_from_trello_response():
 
     item = Item.from_trello_card(trello_card_json, status)
 
-    assert item.name == name + 1
+    assert item.name == name
     assert item.id == id
     assert item.status == status
