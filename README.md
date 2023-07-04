@@ -79,6 +79,15 @@ docker run --env-file ./.env -p 5200:8000 -it todo-app:prod
 
 Go to [http://0.0.0.0:5200](http://0.0.0.0:5200) to see the application running.
 
+#### Test Version
+
+```sh
+docker build --target test --tag todo-app:test .
+docker run -it todo-app:test
+```
+
+The test logs should appear in the terminal.
+
 ## Testing the app
 
 Unit tests can be run from the terminal by running `poetry run pytest`.
